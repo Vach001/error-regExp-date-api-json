@@ -11,15 +11,20 @@
 // If the exception is thrown, the result should be set to the text "Error thrown".
 
 function gradeLabs(labs) {
-  for (let idx = 0; idx < labs.length; idx++) {
-    let lab = labs[idx];
+  for (let i = 0; i < labs.length; i++) {
+    let lab = labs[i];
+    let result = `${lab.student}'s code worked: `;
+
     try {
-      return `${lab.student} cod is worked: ${lab.runLab(5)}`;
-    } catch ({ message }) {
-      throw new Error("Error thrown");
+      let grade = lab.runLab(12);
+      result += grade === 144;
+    } catch (error) {
+      result = "Error thrown";
     }
+    console.log(result);
   }
 }
+
 let studentLabs = [
   {
     student: "Blake",
@@ -40,5 +45,4 @@ let studentLabs = [
     },
   },
 ];
-
-console.log(gradeLabs(studentLabs));
+gradeLabs(studentLabs);
