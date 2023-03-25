@@ -13,15 +13,18 @@
 function gradeLabs(labs) {
   for (let i = 0; i < labs.length; i++) {
     let lab = labs[i];
-    let result = `${lab.student}'s code worked: `;
-
+    let result = null;
     try {
-      let grade = lab.runLab(12);
-      result += grade === 144;
+      if ("runLab" in lab) {
+        result = `${lab.student} code worked: ${lab.runLab(3) === 27}`;
+        console.log(result);
+      } else {
+        throw TypeError("lab.runLab is not a function.");
+      }
     } catch (error) {
       result = "Error thrown";
+      console.log(result);
     }
-    console.log(result);
   }
 }
 
