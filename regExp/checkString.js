@@ -4,7 +4,7 @@ function checkStringForChar(string) {
   const regExpChars = /^[a-zA-Z0-9]*$/g;
 
   return Boolean(string.match(regExpChars));
-};
+}
 
 const sentence = "KaJSCNDSJVBIDNjkasbnjsibdsvjsdbv2516454141";
 
